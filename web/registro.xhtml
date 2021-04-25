@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+       <h:form>
+            <p:growl id="growl" life="3000"/>
+            <h:panelGrid columns="2" id="hpglogin">
+                <p:outputLabel value ="Usuario: "/>
+                <p:inputText required="true" value ="#{registroController.selected.nombre}"/>
+                <p:outputLabel value ="Apellido: "/>
+                <p:inputText required="true" value ="#{registroController.selected.apellido}"/>
+                <p:outputLabel value ="E-mail: "/>
+                <p:inputText required="true" value ="#{registroController.selected.email}"/>
+                <p:outputLabel value="password: "/>
+                <p:inputText required="true" type="#{registroController.selected.password}"/>
+                <p:commandButton action ="#{registroController.create}" value="Ingresar" update="hpglogin, growl"/>
+                
+
+            </h:panelGrid>
+        </h:form>
+    </h:body>
+</html>
+

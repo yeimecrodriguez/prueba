@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListConfigCuentaTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListConfigCuentaEmpty}" rendered="#{configCuentaController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{configCuentaController.items.rowCount > 0}">
+                    <h:outputText value="#{configCuentaController.pagination.pageFirstItem + 1}..#{configCuentaController.pagination.pageLastItem + 1}/#{configCuentaController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{configCuentaController.previous}" value="#{bundle.Previous} #{configCuentaController.pagination.pageSize}" rendered="#{configCuentaController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{configCuentaController.next}" value="#{bundle.Next} #{configCuentaController.pagination.pageSize}" rendered="#{configCuentaController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{configCuentaController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListConfigCuentaTitle_id}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.id}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListConfigCuentaTitle_nombre}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nombre}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListConfigCuentaTitle_nombreFinca}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nombreFinca}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListConfigCuentaTitle_ciudad}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.ciudad}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListConfigCuentaTitle_cantidadTerreno}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.cantidadTerreno}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListConfigCuentaTitle_clima}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.clima}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListConfigCuentaTitle_telefono}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.telefono}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{configCuentaController.prepareView}" value="#{bundle.ListConfigCuentaViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{configCuentaController.prepareEdit}" value="#{bundle.ListConfigCuentaEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{configCuentaController.destroy}" value="#{bundle.ListConfigCuentaDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{configCuentaController.prepareCreate}" value="#{bundle.ListConfigCuentaCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListConfigCuentaIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

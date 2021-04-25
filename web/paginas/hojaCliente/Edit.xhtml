@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditHojaClienteTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditHojaClienteLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{hojaClienteController.selected.id}" title="#{bundle.EditHojaClienteTitle_id}" required="true" requiredMessage="#{bundle.EditHojaClienteRequiredMessage_id}"/>
+                    <h:outputLabel value="#{bundle.EditHojaClienteLabel_nombre}" for="nombre" />
+                    <h:inputText id="nombre" value="#{hojaClienteController.selected.nombre}" title="#{bundle.EditHojaClienteTitle_nombre}" />
+                    <h:outputLabel value="#{bundle.EditHojaClienteLabel_apellido}" for="apellido" />
+                    <h:inputText id="apellido" value="#{hojaClienteController.selected.apellido}" title="#{bundle.EditHojaClienteTitle_apellido}" />
+                    <h:outputLabel value="#{bundle.EditHojaClienteLabel_telefono}" for="telefono" />
+                    <h:inputText id="telefono" value="#{hojaClienteController.selected.telefono}" title="#{bundle.EditHojaClienteTitle_telefono}" />
+                    <h:outputLabel value="#{bundle.EditHojaClienteLabel_direccion}" for="direccion" />
+                    <h:inputText id="direccion" value="#{hojaClienteController.selected.direccion}" title="#{bundle.EditHojaClienteTitle_direccion}" />
+                    <h:outputLabel value="#{bundle.EditHojaClienteLabel_productoVendido}" for="productoVendido" />
+                    <h:inputText id="productoVendido" value="#{hojaClienteController.selected.productoVendido}" title="#{bundle.EditHojaClienteTitle_productoVendido}" />
+                    <h:outputLabel value="#{bundle.EditHojaClienteLabel_cantidad}" for="cantidad" />
+                    <h:inputText id="cantidad" value="#{hojaClienteController.selected.cantidad}" title="#{bundle.EditHojaClienteTitle_cantidad}" />
+                    <h:outputLabel value="#{bundle.EditHojaClienteLabel_email}" for="email" />
+                    <h:inputText id="email" value="#{hojaClienteController.selected.email}" title="#{bundle.EditHojaClienteTitle_email}" />
+                    <h:outputLabel value="#{bundle.EditHojaClienteLabel_valorUnit}" for="valorUnit" />
+                    <h:inputText id="valorUnit" value="#{hojaClienteController.selected.valorUnit}" title="#{bundle.EditHojaClienteTitle_valorUnit}" />
+                    <h:outputLabel value="#{bundle.EditHojaClienteLabel_fecha}" for="fecha" />
+                    <h:inputText id="fecha" value="#{hojaClienteController.selected.fecha}" title="#{bundle.EditHojaClienteTitle_fecha}" />
+                    <h:outputLabel value="#{bundle.EditHojaClienteLabel_total}" for="total" />
+                    <h:inputText id="total" value="#{hojaClienteController.selected.total}" title="#{bundle.EditHojaClienteTitle_total}" />
+                </h:panelGrid>
+                <h:commandLink action="#{hojaClienteController.update}" value="#{bundle.EditHojaClienteSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditHojaClienteViewLink}"/>
+                <br />
+                <h:commandLink action="#{hojaClienteController.prepareList}" value="#{bundle.EditHojaClienteShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditHojaClienteIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

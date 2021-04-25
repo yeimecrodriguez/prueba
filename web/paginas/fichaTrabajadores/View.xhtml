@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewFichaTrabajadoresTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewFichaTrabajadoresLabel_id}"/>
+                    <h:outputText value="#{fichaTrabajadoresController.selected.id}" title="#{bundle.ViewFichaTrabajadoresTitle_id}"/>
+                    <h:outputText value="#{bundle.ViewFichaTrabajadoresLabel_nombre}"/>
+                    <h:outputText value="#{fichaTrabajadoresController.selected.nombre}" title="#{bundle.ViewFichaTrabajadoresTitle_nombre}"/>
+                    <h:outputText value="#{bundle.ViewFichaTrabajadoresLabel_apellido}"/>
+                    <h:outputText value="#{fichaTrabajadoresController.selected.apellido}" title="#{bundle.ViewFichaTrabajadoresTitle_apellido}"/>
+                    <h:outputText value="#{bundle.ViewFichaTrabajadoresLabel_telefono}"/>
+                    <h:outputText value="#{fichaTrabajadoresController.selected.telefono}" title="#{bundle.ViewFichaTrabajadoresTitle_telefono}"/>
+                    <h:outputText value="#{bundle.ViewFichaTrabajadoresLabel_email}"/>
+                    <h:outputText value="#{fichaTrabajadoresController.selected.email}" title="#{bundle.ViewFichaTrabajadoresTitle_email}"/>
+                    <h:outputText value="#{bundle.ViewFichaTrabajadoresLabel_trabajoRealizado}"/>
+                    <h:outputText value="#{fichaTrabajadoresController.selected.trabajoRealizado}" title="#{bundle.ViewFichaTrabajadoresTitle_trabajoRealizado}"/>
+                    <h:outputText value="#{bundle.ViewFichaTrabajadoresLabel_horasTraba}"/>
+                    <h:outputText value="#{fichaTrabajadoresController.selected.horasTraba}" title="#{bundle.ViewFichaTrabajadoresTitle_horasTraba}"/>
+                    <h:outputText value="#{bundle.ViewFichaTrabajadoresLabel_fecha}"/>
+                    <h:outputText value="#{fichaTrabajadoresController.selected.fecha}" title="#{bundle.ViewFichaTrabajadoresTitle_fecha}"/>
+                    <h:outputText value="#{bundle.ViewFichaTrabajadoresLabel_total}"/>
+                    <h:outputText value="#{fichaTrabajadoresController.selected.total}" title="#{bundle.ViewFichaTrabajadoresTitle_total}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{fichaTrabajadoresController.destroyAndView}" value="#{bundle.ViewFichaTrabajadoresDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewFichaTrabajadoresEditLink}"/>
+                <br />
+                <h:commandLink action="#{fichaTrabajadoresController.prepareCreate}" value="#{bundle.ViewFichaTrabajadoresCreateLink}" />
+                <br />
+                <h:commandLink action="#{fichaTrabajadoresController.prepareList}" value="#{bundle.ViewFichaTrabajadoresShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewFichaTrabajadoresIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

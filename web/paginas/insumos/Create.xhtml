@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateInsumosTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateInsumosLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{insumosController.selected.id}" title="#{bundle.CreateInsumosTitle_id}" required="true" requiredMessage="#{bundle.CreateInsumosRequiredMessage_id}"/>
+                    <h:outputLabel value="#{bundle.CreateInsumosLabel_cultivo}" for="cultivo" />
+                    <h:inputText id="cultivo" value="#{insumosController.selected.cultivo}" title="#{bundle.CreateInsumosTitle_cultivo}" />
+                    <h:outputLabel value="#{bundle.CreateInsumosLabel_presentacion}" for="presentacion" />
+                    <h:inputText id="presentacion" value="#{insumosController.selected.presentacion}" title="#{bundle.CreateInsumosTitle_presentacion}" />
+                    <h:outputLabel value="#{bundle.CreateInsumosLabel_aplicacion}" for="aplicacion" />
+                    <h:inputText id="aplicacion" value="#{insumosController.selected.aplicacion}" title="#{bundle.CreateInsumosTitle_aplicacion}" />
+                    <h:outputLabel value="#{bundle.CreateInsumosLabel_etapa}" for="etapa" />
+                    <h:inputText id="etapa" value="#{insumosController.selected.etapa}" title="#{bundle.CreateInsumosTitle_etapa}" />
+                    <h:outputLabel value="#{bundle.CreateInsumosLabel_nombreInsumo}" for="nombreInsumo" />
+                    <h:inputText id="nombreInsumo" value="#{insumosController.selected.nombreInsumo}" title="#{bundle.CreateInsumosTitle_nombreInsumo}" />
+                    <h:outputLabel value="#{bundle.CreateInsumosLabel_fecha}" for="fecha" />
+                    <h:inputText id="fecha" value="#{insumosController.selected.fecha}" title="#{bundle.CreateInsumosTitle_fecha}" />
+                    <h:outputLabel value="#{bundle.CreateInsumosLabel_nota}" for="nota" />
+                    <h:inputText id="nota" value="#{insumosController.selected.nota}" title="#{bundle.CreateInsumosTitle_nota}" />
+                    <h:outputLabel value="#{bundle.CreateInsumosLabel_valor}" for="valor" />
+                    <h:inputText id="valor" value="#{insumosController.selected.valor}" title="#{bundle.CreateInsumosTitle_valor}" />
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{insumosController.create}" value="#{bundle.CreateInsumosSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{insumosController.prepareList}" value="#{bundle.CreateInsumosShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateInsumosIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

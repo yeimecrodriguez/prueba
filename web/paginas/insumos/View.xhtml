@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewInsumosTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewInsumosLabel_id}"/>
+                    <h:outputText value="#{insumosController.selected.id}" title="#{bundle.ViewInsumosTitle_id}"/>
+                    <h:outputText value="#{bundle.ViewInsumosLabel_cultivo}"/>
+                    <h:outputText value="#{insumosController.selected.cultivo}" title="#{bundle.ViewInsumosTitle_cultivo}"/>
+                    <h:outputText value="#{bundle.ViewInsumosLabel_presentacion}"/>
+                    <h:outputText value="#{insumosController.selected.presentacion}" title="#{bundle.ViewInsumosTitle_presentacion}"/>
+                    <h:outputText value="#{bundle.ViewInsumosLabel_aplicacion}"/>
+                    <h:outputText value="#{insumosController.selected.aplicacion}" title="#{bundle.ViewInsumosTitle_aplicacion}"/>
+                    <h:outputText value="#{bundle.ViewInsumosLabel_etapa}"/>
+                    <h:outputText value="#{insumosController.selected.etapa}" title="#{bundle.ViewInsumosTitle_etapa}"/>
+                    <h:outputText value="#{bundle.ViewInsumosLabel_nombreInsumo}"/>
+                    <h:outputText value="#{insumosController.selected.nombreInsumo}" title="#{bundle.ViewInsumosTitle_nombreInsumo}"/>
+                    <h:outputText value="#{bundle.ViewInsumosLabel_fecha}"/>
+                    <h:outputText value="#{insumosController.selected.fecha}" title="#{bundle.ViewInsumosTitle_fecha}"/>
+                    <h:outputText value="#{bundle.ViewInsumosLabel_nota}"/>
+                    <h:outputText value="#{insumosController.selected.nota}" title="#{bundle.ViewInsumosTitle_nota}"/>
+                    <h:outputText value="#{bundle.ViewInsumosLabel_valor}"/>
+                    <h:outputText value="#{insumosController.selected.valor}" title="#{bundle.ViewInsumosTitle_valor}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{insumosController.destroyAndView}" value="#{bundle.ViewInsumosDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewInsumosEditLink}"/>
+                <br />
+                <h:commandLink action="#{insumosController.prepareCreate}" value="#{bundle.ViewInsumosCreateLink}" />
+                <br />
+                <h:commandLink action="#{insumosController.prepareList}" value="#{bundle.ViewInsumosShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewInsumosIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditHojaCultivoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditHojaCultivoLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{hojaCultivoController.selected.id}" title="#{bundle.EditHojaCultivoTitle_id}" required="true" requiredMessage="#{bundle.EditHojaCultivoRequiredMessage_id}"/>
+                    <h:outputLabel value="#{bundle.EditHojaCultivoLabel_cultivo}" for="cultivo" />
+                    <h:inputText id="cultivo" value="#{hojaCultivoController.selected.cultivo}" title="#{bundle.EditHojaCultivoTitle_cultivo}" />
+                    <h:outputLabel value="#{bundle.EditHojaCultivoLabel_fechaInicio}" for="fechaInicio" />
+                    <h:inputText id="fechaInicio" value="#{hojaCultivoController.selected.fechaInicio}" title="#{bundle.EditHojaCultivoTitle_fechaInicio}" />
+                    <h:outputLabel value="#{bundle.EditHojaCultivoLabel_cantidad}" for="cantidad" />
+                    <h:inputText id="cantidad" value="#{hojaCultivoController.selected.cantidad}" title="#{bundle.EditHojaCultivoTitle_cantidad}" />
+                    <h:outputLabel value="#{bundle.EditHojaCultivoLabel_cantidadTerreno}" for="cantidadTerreno" />
+                    <h:inputText id="cantidadTerreno" value="#{hojaCultivoController.selected.cantidadTerreno}" title="#{bundle.EditHojaCultivoTitle_cantidadTerreno}" />
+                    <h:outputLabel value="#{bundle.EditHojaCultivoLabel_fechaFinal}" for="fechaFinal" />
+                    <h:inputText id="fechaFinal" value="#{hojaCultivoController.selected.fechaFinal}" title="#{bundle.EditHojaCultivoTitle_fechaFinal}" />
+                </h:panelGrid>
+                <h:commandLink action="#{hojaCultivoController.update}" value="#{bundle.EditHojaCultivoSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditHojaCultivoViewLink}"/>
+                <br />
+                <h:commandLink action="#{hojaCultivoController.prepareList}" value="#{bundle.EditHojaCultivoShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditHojaCultivoIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

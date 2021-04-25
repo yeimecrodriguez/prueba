@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    
+    <h:head>
+       <h:outputStylesheet library="css" name="login.css" />
+    </h:head>
+    <h:body>
+        <h:form>
+            
+             
+            <p:growl id="growl" life="5000"/>
+            <title>LOGIN</title>
+             <div id="cuadro">
+            
+            <h:panelGrid columns="1" id="hpglogin">
+                <br/><br/>
+                <h1>Ingresar</h1>
+                
+                <br/><br/>
+                <p:outputLabel value ="Usuario: "/>
+                
+                <p:inputText required="true" placeholder="&#128272;" type ="#{registroController.selected.nombre}"/>
+                <br/><br/>
+                <p:outputLabel value="password: "/>
+                
+                <p:inputText required="true" placeholder="&#128273;"  type="#{registroController.selected.password}"/>
+                <br/><br/>
+              
+                <p:commandButton action ="#{registroController.registrarse}" value="Ingresar" />
+                  <br/><br/>
+                <p:link value="Crear cuenta" outcome="registro.xhtml"/>
+
+            </h:panelGrid>
+             </div>
+            
+        </h:form>
+    </h:body>
+</html>
+

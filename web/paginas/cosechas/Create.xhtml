@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateCosechasTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateCosechasLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{cosechasController.selected.id}" title="#{bundle.CreateCosechasTitle_id}" required="true" requiredMessage="#{bundle.CreateCosechasRequiredMessage_id}"/>
+                    <h:outputLabel value="#{bundle.CreateCosechasLabel_cultivo}" for="cultivo" />
+                    <h:inputText id="cultivo" value="#{cosechasController.selected.cultivo}" title="#{bundle.CreateCosechasTitle_cultivo}" />
+                    <h:outputLabel value="#{bundle.CreateCosechasLabel_cantidad}" for="cantidad" />
+                    <h:inputText id="cantidad" value="#{cosechasController.selected.cantidad}" title="#{bundle.CreateCosechasTitle_cantidad}" />
+                    <h:outputLabel value="#{bundle.CreateCosechasLabel_presentacion}" for="presentacion" />
+                    <h:inputText id="presentacion" value="#{cosechasController.selected.presentacion}" title="#{bundle.CreateCosechasTitle_presentacion}" />
+                    <h:outputLabel value="#{bundle.CreateCosechasLabel_precioUnit}" for="precioUnit" />
+                    <h:inputText id="precioUnit" value="#{cosechasController.selected.precioUnit}" title="#{bundle.CreateCosechasTitle_precioUnit}" />
+                    <h:outputLabel value="#{bundle.CreateCosechasLabel_total}" for="total" />
+                    <h:inputText id="total" value="#{cosechasController.selected.total}" title="#{bundle.CreateCosechasTitle_total}" />
+                    <h:outputLabel value="#{bundle.CreateCosechasLabel_telefono}" for="telefono" />
+                    <h:inputText id="telefono" value="#{cosechasController.selected.telefono}" title="#{bundle.CreateCosechasTitle_telefono}" />
+                    <h:outputLabel value="#{bundle.CreateCosechasLabel_fecha}" for="fecha" />
+                    <h:inputText id="fecha" value="#{cosechasController.selected.fecha}" title="#{bundle.CreateCosechasTitle_fecha}" />
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{cosechasController.create}" value="#{bundle.CreateCosechasSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{cosechasController.prepareList}" value="#{bundle.CreateCosechasShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateCosechasIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

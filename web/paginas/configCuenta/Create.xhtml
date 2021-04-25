@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateConfigCuentaTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateConfigCuentaLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{configCuentaController.selected.id}" title="#{bundle.CreateConfigCuentaTitle_id}" required="true" requiredMessage="#{bundle.CreateConfigCuentaRequiredMessage_id}"/>
+                    <h:outputLabel value="#{bundle.CreateConfigCuentaLabel_nombre}" for="nombre" />
+                    <h:inputText id="nombre" value="#{configCuentaController.selected.nombre}" title="#{bundle.CreateConfigCuentaTitle_nombre}" />
+                    <h:outputLabel value="#{bundle.CreateConfigCuentaLabel_nombreFinca}" for="nombreFinca" />
+                    <h:inputText id="nombreFinca" value="#{configCuentaController.selected.nombreFinca}" title="#{bundle.CreateConfigCuentaTitle_nombreFinca}" />
+                    <h:outputLabel value="#{bundle.CreateConfigCuentaLabel_ciudad}" for="ciudad" />
+                    <h:inputText id="ciudad" value="#{configCuentaController.selected.ciudad}" title="#{bundle.CreateConfigCuentaTitle_ciudad}" />
+                    <h:outputLabel value="#{bundle.CreateConfigCuentaLabel_cantidadTerreno}" for="cantidadTerreno" />
+                    <h:inputText id="cantidadTerreno" value="#{configCuentaController.selected.cantidadTerreno}" title="#{bundle.CreateConfigCuentaTitle_cantidadTerreno}" />
+                    <h:outputLabel value="#{bundle.CreateConfigCuentaLabel_clima}" for="clima" />
+                    <h:inputText id="clima" value="#{configCuentaController.selected.clima}" title="#{bundle.CreateConfigCuentaTitle_clima}" />
+                    <h:outputLabel value="#{bundle.CreateConfigCuentaLabel_telefono}" for="telefono" />
+                    <h:inputText id="telefono" value="#{configCuentaController.selected.telefono}" title="#{bundle.CreateConfigCuentaTitle_telefono}" />
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{configCuentaController.create}" value="#{bundle.CreateConfigCuentaSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{configCuentaController.prepareList}" value="#{bundle.CreateConfigCuentaShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateConfigCuentaIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

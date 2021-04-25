@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreatePruebacuTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreatePruebacuLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{pruebacuController.selected.id}" title="#{bundle.CreatePruebacuTitle_id}" required="true" requiredMessage="#{bundle.CreatePruebacuRequiredMessage_id}"/>
+                    <h:outputLabel value="#{bundle.CreatePruebacuLabel_nombre}" for="nombre" />
+                    <h:inputText id="nombre" value="#{pruebacuController.selected.nombre}" title="#{bundle.CreatePruebacuTitle_nombre}" required="true" requiredMessage="#{bundle.CreatePruebacuRequiredMessage_nombre}"/>
+                    <h:outputLabel value="#{bundle.CreatePruebacuLabel_apodo}" for="apodo" />
+                    <h:inputText id="apodo" value="#{pruebacuController.selected.apodo}" title="#{bundle.CreatePruebacuTitle_apodo}" required="true" requiredMessage="#{bundle.CreatePruebacuRequiredMessage_apodo}"/>
+                    <h:outputLabel value="#{bundle.CreatePruebacuLabel_edad}" for="edad" />
+                    <h:inputText id="edad" value="#{pruebacuController.selected.edad}" title="#{bundle.CreatePruebacuTitle_edad}" required="true" requiredMessage="#{bundle.CreatePruebacuRequiredMessage_edad}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{pruebacuController.create}" value="#{bundle.CreatePruebacuSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{pruebacuController.prepareList}" value="#{bundle.CreatePruebacuShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreatePruebacuIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
